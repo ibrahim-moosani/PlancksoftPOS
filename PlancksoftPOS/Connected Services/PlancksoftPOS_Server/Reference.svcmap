@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="57df44bf-c96b-48c4-bade-61180d35b33b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/PlancksoftPOS/PlancksoftPOS.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PlancksoftPOS.xsd" MetadataType="Schema" ID="dc5743d5-3a03-40f0-b0ca-7e0f402c9366" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?xsd=xsd5" />
+    <MetadataFile FileName="PlancksoftPOS_Server.wsdl" MetadataType="Wsdl" ID="83068d1f-cf97-4c3b-a7c7-d91c008b785a" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?wsdl" />
+    <MetadataFile FileName="PlancksoftPOS1.xsd" MetadataType="Schema" ID="47961703-380e-4b07-9979-c595b0f8083f" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?xsd=xsd0" />
+    <MetadataFile FileName="PlancksoftPOS2.xsd" MetadataType="Schema" ID="8bc13b53-c5b4-41f4-88ed-8e2a18afa302" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?xsd=xsd1" />
+    <MetadataFile FileName="PlancksoftPOS.disco" MetadataType="Disco" ID="bea47987-70a3-450a-bcc5-3cef79fcf76e" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?disco" />
+    <MetadataFile FileName="PlancksoftPOS3.xsd" MetadataType="Schema" ID="60d84864-18e9-4391-9335-3eb6a55a019a" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?xsd=xsd3" />
+    <MetadataFile FileName="PlancksoftPOS4.xsd" MetadataType="Schema" ID="9ada0637-defe-433a-9f75-294da3d3a7f6" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?xsd=xsd2" />
+    <MetadataFile FileName="PlancksoftPOS5.xsd" MetadataType="Schema" ID="a6057aa9-6cbf-4086-a8a9-547b731a761d" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

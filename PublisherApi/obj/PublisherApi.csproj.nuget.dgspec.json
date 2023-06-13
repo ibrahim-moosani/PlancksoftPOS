@@ -1,0 +1,138 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj": {}
+  },
+  "projects": {
+    "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj",
+        "projectName": "DataAccessLayerJSON",
+        "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {
+              "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\Dependencies\\Dependencies.csproj": {
+                "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\Dependencies\\Dependencies.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    },
+    "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\Dependencies\\Dependencies.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\Dependencies\\Dependencies.csproj",
+        "projectName": "Dependencies",
+        "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\Dependencies\\Dependencies.csproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    },
+    "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj",
+        "projectName": "PlancksoftPOS Server JSON",
+        "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {
+              "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj": {
+                "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj"
+              },
+              "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\Dependencies\\Dependencies.csproj": {
+                "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\Dependencies\\Dependencies.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    },
+    "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
+        "projectName": "PublisherApi",
+        "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
+        "packagesPath": "C:\\Users\\Ibrahim Moosani\\.nuget\\packages\\",
+        "outputPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PublisherApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ibrahim Moosani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj": {
+                "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj"
+              },
+              "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj": {
+                "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
