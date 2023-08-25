@@ -45,7 +45,7 @@ namespace PublisherApi.Controllers
                 {
                     // Handle the error case, if needed
 
-                    return BadRequest($"Request failed with status code {response.StatusCode}");
+                    return BadRequest($"Request failed with status code {response.RequestMessage}");
                 }
             }
             catch (Exception ex)
