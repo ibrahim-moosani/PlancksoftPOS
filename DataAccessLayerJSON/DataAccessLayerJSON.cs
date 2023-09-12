@@ -12,7 +12,7 @@ namespace DataAccessLayerJSON
     public class DataAccessLayerJSON
     {
         public static string ComputerName = "DESKTOP-11JFLJO\\SQLEXPRESS";
-        public static string DBName = "PlancksoftPOS";
+        public static string DBName = "PlancksoftPOS1";
         public static string DBUID = "hanz";
         public static string DBPWD = "hanz";
 
@@ -81,7 +81,7 @@ namespace DataAccessLayerJSON
                 dt.TableName = "SaleByDate";
                 return new Response("Failed to retrieve sales by date.", false);
             }
-        }  
+        }
 
         public Response RetrieveSystemSettings()
         {
@@ -275,7 +275,8 @@ namespace DataAccessLayerJSON
                     if ((LanguageChoice.Languages)locale == LanguageChoice.Languages.Arabic)
                     {
                         Name = "غير مفضله";
-                    } else if ((LanguageChoice.Languages)locale == LanguageChoice.Languages.English)
+                    }
+                    else if ((LanguageChoice.Languages)locale == LanguageChoice.Languages.English)
                     {
                         Name = "Not Favorited";
                     }
@@ -582,7 +583,7 @@ namespace DataAccessLayerJSON
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                
+
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -643,7 +644,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "VendorsList";
-                
+
                 return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
@@ -757,7 +758,7 @@ namespace DataAccessLayerJSON
                     if (connection != null && connection.State == ConnectionState.Closed)
                         connection.Open();
                     cmd.ExecuteNonQuery();
-                    
+
                     connection.Close();
                 }
             }
@@ -779,6 +780,7 @@ namespace DataAccessLayerJSON
                     cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(AccountToLogin.GetAccountPWD(), "PlancksoftPOS"));
                     cmd.Parameters.Add("@Name", SqlDbType.NVarChar).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Authority", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@ID", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters["@Name"].Size = 250;
 
@@ -786,11 +788,47 @@ namespace DataAccessLayerJSON
                         connection.Open();
                     cmd.ExecuteNonQuery();
 
+                    int ID = Convert.ToInt32(cmd.Parameters["@ID"].Value);
+                    Name = cmd.Parameters["@Name"].Value.ToString();
+                    string UID = AccountToLogin.GetAccountUID();
                     int Authority = Convert.ToInt32(cmd.Parameters["@Authority"].Value);
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
-                    Name = cmd.Parameters["@Name"].Value.ToString();
+
                     connection.Close();
-                    return new Response(Tuple.Create(Convert.ToBoolean(Status), Name, Convert.ToBoolean(Authority)), true);
+
+                    Account User = new Account();
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    SqlCommand commmandd = new SqlCommand("RetrieveUserPermissions", connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    commmandd.Parameters.AddWithValue("@UserID", AccountToLogin.GetAccountUID());
+
+                    adapter.SelectCommand = commmandd;
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dt.TableName = "UserPermissions";
+
+                    foreach (DataRow Permission in dt.Rows)
+                    {
+                        User.Client_card_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Client Card Permission"].ToString()));
+                        User.discount_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Discount Permission"].ToString()));
+                        User.price_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Price Edit Permission"].ToString()));
+                        User.receipt_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Receipt Edit Permission"].ToString()));
+                        User.inventory_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Inventory Edit Permission"].ToString()));
+                        User.expenses_add = Convert.ToBoolean(Convert.ToInt32(Permission["Expense Add Permission"].ToString()));
+                        User.users_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Users Edit Permission"].ToString()));
+                        User.settings_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Settings Edit Permission"].ToString()));
+                        User.personnel_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Personnel Edit Permission"].ToString()));
+                        User.openclose_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Open Close Cash Permission"].ToString()));
+                        User.sell_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Sell Permission"].ToString()));
+                    }
+                    User.SetAccountAuthority(Authority);
+                    User.SetAccountUID(UID);
+                    User.SetAccountName(Name);
+
+                    return new Response(Tuple.Create(Convert.ToBoolean(Status), ID, User), true);
                 }
             }
             catch (Exception ex)
@@ -1105,7 +1143,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "WarehouseInventoryItems";
-                
+
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item item = new Item();
@@ -1137,7 +1175,7 @@ namespace DataAccessLayerJSON
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                
+
                 if (ItemName != "")
                     cmd.Parameters.AddWithValue("@ItemName", ItemName);
                 if (ItemBarCode != "")
@@ -1147,7 +1185,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "InventoryItems";
-                
+
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item item = new Item();
@@ -1180,14 +1218,14 @@ namespace DataAccessLayerJSON
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                
+
                 if (ItemBarCode != "")
                     cmd.Parameters.AddWithValue("@ItemBarCode", ItemBarCode);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "InventoryItemsWithBarCode";
-                
+
                 foreach (DataRow ItemFound in dt.Rows)
                 {
                     Item.SetID(Int32.Parse(ItemFound["Item ID"].ToString()));
@@ -1221,7 +1259,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "UnPortedBills";
-                
+
                 foreach (DataRow Bill in dt.Rows)
                 {
                     Bill bill = new Bill();
@@ -1257,7 +1295,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "PortedBills";
-                
+
                 foreach (DataRow Bill in dt.Rows)
                 {
                     Bill bill = new Bill();
@@ -1293,7 +1331,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "UnpaidBills";
-                
+
                 foreach (DataRow Bill in dt.Rows)
                 {
                     Bill bill = new Bill();
@@ -1304,7 +1342,7 @@ namespace DataAccessLayerJSON
                     bill.Postponed = true;
                     Bills.Add(bill);
                 }
-                foreach(Bill bill in Bills)
+                foreach (Bill bill in Bills)
                 {
                     bill.ItemsBought = (List<Item>)RetrieveBillItems(bill.getBillNumber()).ResponseMessage;
                 }
@@ -1333,7 +1371,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "VendorBills";
-                
+
                 foreach (DataRow Bill in dt.Rows)
                 {
                     Bill bill = new Bill();
@@ -1391,7 +1429,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "Bills";
-                
+
                 foreach (DataRow Bill in dt.Rows)
                 {
                     Bill bill = new Bill();
@@ -1428,7 +1466,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "CapitalRevenue";
-                
+
                 return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
@@ -1454,7 +1492,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "Exports";
-                
+
                 return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
@@ -1480,7 +1518,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "Imports";
-                
+
                 return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
@@ -1506,7 +1544,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "LeastBoughtItems";
-                
+
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item item = new Item();
@@ -1542,7 +1580,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "MostBoughtItems";
-                
+
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item item = new Item();
@@ -1607,7 +1645,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "UserPermissions";
-                
+
                 foreach (DataRow Permission in dt.Rows)
                 {
                     User.Client_card_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Client Card Permission"].ToString()));
@@ -1648,7 +1686,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "ItemPictureFromBarCode";
-                
+
                 foreach (DataRow ItemInfo in dt.Rows)
                 {
                     if (!Convert.IsDBNull(ItemInfo["Item Picture"]))
@@ -1682,7 +1720,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "ItemsQuantityDates";
-                
+
                 foreach (DataRow ItemInfo in dt.Rows)
                 {
                     Item.SetName(ItemInfo["Item Name"].ToString());
@@ -1717,7 +1755,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "Items";
-                
+
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item item = new Item();
@@ -1783,7 +1821,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "Users";
-                
+
                 foreach (DataRow User in dt.Rows)
                 {
                     Account user = new Account();
@@ -1867,7 +1905,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "BillItems";
-                
+
                 foreach (DataRow FavoriteItem in dt.Rows)
                 {
                     Item billItems = new Item();
@@ -1957,7 +1995,7 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "FavoriteItems";
-                
+
                 foreach (DataRow FavoriteItem in dt.Rows)
                 {
                     Item favoriteItem = new Item();
@@ -2016,7 +2054,7 @@ namespace DataAccessLayerJSON
                 using (SqlCommand cmd = new SqlCommand("GetOpenRegisterAmount", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    
+
                     cmd.Parameters.Add("@Amount", SqlDbType.Decimal).Direction = ParameterDirection.Output;
                     cmd.Parameters["@Amount"].Precision = 18;
                     cmd.Parameters["@Amount"].Scale = 2;
@@ -2044,7 +2082,7 @@ namespace DataAccessLayerJSON
                 using (SqlCommand cmd = new SqlCommand("GetTotalSalesAmountCloseCash", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    
+
                     cmd.Parameters.Add("@Amount", SqlDbType.Decimal).Direction = ParameterDirection.Output;
                     cmd.Parameters["@Amount"].Precision = 18;
                     cmd.Parameters["@Amount"].Scale = 2;
@@ -2378,8 +2416,8 @@ namespace DataAccessLayerJSON
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@ItemTypeID", ItemTypeID);
-                    cmd.Parameters.AddWithValue("@ItemTypeName", ItemTypeName);
+                    cmd.Parameters.AddWithValue("@WarehouseID", ItemTypeID);
+                    cmd.Parameters.AddWithValue("@WarehouseName", ItemTypeName);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
@@ -2452,7 +2490,7 @@ namespace DataAccessLayerJSON
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("UpdatePrinter", connection))
+                using (SqlCommand cmd = new SqlCommand("UpdatePrinters", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -2582,7 +2620,7 @@ namespace DataAccessLayerJSON
                 using (SqlCommand cmd = new SqlCommand("DeleteClient", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    
+
                     cmd.Parameters.AddWithValue("@ClientID", ClientID);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -2937,8 +2975,8 @@ namespace DataAccessLayerJSON
                     int BillID = Convert.ToInt32(cmd.Parameters["@BillID"].Value);
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    
-                    foreach(Item itemToAdd in billToAdd.ItemsBought)
+
+                    foreach (Item itemToAdd in billToAdd.ItemsBought)
                     {
                         using (SqlCommand cmd2 = new SqlCommand("AddItemToBill", connection))
                         {
@@ -3105,10 +3143,10 @@ namespace DataAccessLayerJSON
 
                 }
 
-                    using (SqlCommand cmd = new SqlCommand("CreateTransaction", connection))
+                using (SqlCommand cmd = new SqlCommand("CreateTransaction", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    
+
                     cmd.Parameters.AddWithValue("@EntryExitType", EntryExitType);
                     cmd.Parameters.AddWithValue("@Date", DateTime.Now);
                     cmd.Parameters.AddWithValue("@cashierName", EmployeeName);
@@ -3124,7 +3162,8 @@ namespace DataAccessLayerJSON
                     connection.Close();
                 }
 
-                foreach (Item ItemToUpdate in ItemsToUpdate) {
+                foreach (Item ItemToUpdate in ItemsToUpdate)
+                {
 
                     using (SqlCommand cmd = new SqlCommand("UpdateItemWarehouse", connection))
                     {
@@ -3207,9 +3246,9 @@ namespace DataAccessLayerJSON
                 using (SqlCommand cmd = new SqlCommand("UpdateItemQuantity", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    
+
                     cmd.Parameters.AddWithValue("@ItemBarCode", ItemToUpdate.GetItemBarCode());
-                    cmd.Parameters.AddWithValue("@ItemQuantity", ItemToUpdate.GetQuantity().ToString());
+                    cmd.Parameters.AddWithValue("@ItemQuantity", ItemToUpdate.GetQuantity());
                     cmd.Parameters.AddWithValue("@Date", DateTime.Now);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -3270,7 +3309,7 @@ namespace DataAccessLayerJSON
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                
+
                 foreach (DataRow Item in dt.Rows)
                 {
                     Bill.SetBillNumber(Convert.ToInt32(Item["Bill Number"].ToString()));
@@ -3304,7 +3343,7 @@ namespace DataAccessLayerJSON
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                
+
                 foreach (DataRow Item in dt.Rows)
                 {
                     BillsCount = (Convert.ToInt32(Item["Bills Count"].ToString()));
@@ -3315,7 +3354,7 @@ namespace DataAccessLayerJSON
             {
                 return new Response("Could not Retrieve Last Bill Number Today.", false);
             }
-        }  
+        }
 
         public Response RetrieveLastBillNumberToday()
         {
@@ -3331,7 +3370,7 @@ namespace DataAccessLayerJSON
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                
+
                 foreach (DataRow Item in dt.Rows)
                 {
                     Bill.SetBillNumber(Convert.ToInt32(Item["Bill Number"].ToString()));
@@ -3361,7 +3400,7 @@ namespace DataAccessLayerJSON
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                
+
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item itemexpire = new Item();
@@ -3388,11 +3427,11 @@ namespace DataAccessLayerJSON
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                
+
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                
+
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item itemsale = new Item();
@@ -3433,7 +3472,7 @@ namespace DataAccessLayerJSON
                 dt.TableName = "TotalActiveItems";
                 return new Response("Could not Retrieve Total Active Items Count.", false);
             }
-        }   
+        }
 
         public Response RetrieveClientCount()
         {
@@ -3457,7 +3496,7 @@ namespace DataAccessLayerJSON
                 dt.TableName = "ClientCount";
                 return new Response("Could not Retrieve Client Count.", false);
             }
-        }  
+        }
 
         public Response RetrieveExpireStockToday(DateTime Date)
         {
@@ -3556,7 +3595,7 @@ namespace DataAccessLayerJSON
                 List<Item> saleItems = new List<Item>();
                 return new Response("Could not Retrieve Sale using Date Range.", false);
             }
-        }  
+        }
 
         public Response RetrieveSaleToday(DateTime Date, int QuantityEnd = 0)
         {
@@ -3732,7 +3771,7 @@ namespace DataAccessLayerJSON
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                
+
                 cmd.Parameters.AddWithValue("@Date1", Date1);
                 cmd.Parameters.AddWithValue("@Date2", Date2);
 
