@@ -11,18 +11,6 @@ namespace PlancksoftPOSJSON_Server
     [ServiceContract]
     public interface IPlancksoftPOSJSON_Server
     {
-        //[OperationContract]
-        //[
-        //    WebInvoke
-        //    (
-        //        Method = "POST",
-        //        UriTemplate = "CheckConnection",
-        //        RequestFormat = WebMessageFormat.Json,
-        //        ResponseFormat = WebMessageFormat.Json,
-        //        BodyStyle = WebMessageBodyStyle.WrappedRequest
-        //    )
-        //]
-        string CheckConnection();
         [OperationContract]
         [
             WebInvoke
@@ -34,7 +22,9 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
-        string RetrieveSaleByDate(DateTime StartDate, DateTime EndDate);
+        string CheckConnection();
+        
+        string RetrieveSaleByDate(DateTime StartDate, DateTime EndDate);      
         [OperationContract]
         [
             WebInvoke
@@ -1271,7 +1261,7 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
-        string RetrieveTotalActiveItems(DateTime ExpirationDate);
+        string RetrieveTotalActiveItems(DateTime ExpirationDate);  
         [OperationContract]
         [
             WebInvoke
@@ -1283,7 +1273,7 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
-        string RetrieveClientCount();
+        string RetrieveClientCount();       
         [OperationContract]
         [
             WebInvoke
@@ -1295,7 +1285,7 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
-        string RetrieveBillsCountByDate(DateTime StartDate, DateTime EndDate);
+        string RetrieveBillsCountByDate(DateTime StartDate, DateTime EndDate);    
         [OperationContract]
         [
             WebInvoke
