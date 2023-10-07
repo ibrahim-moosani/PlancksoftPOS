@@ -11,10 +11,10 @@ namespace DataAccessLayerJSON
 {
     public class DataAccessLayerJSON
     {
-        public static string ComputerName = "DESKTOP-11JFLJO\\SQLEXPRESS";
+        public static string ComputerName = "(local)";
         public static string DBName = "PlancksoftPOS";
-        public static string DBUID = "hanz";
-        public static string DBPWD = "hanz";
+        public static string DBUID = "PlancksoftPOS";
+        public static string DBPWD = "PlancksoftPOS";
 
         public SqlConnection connection = new SqlConnection(@"Data Source=" + ComputerName + ";Initial Catalog=" + DBName + ";User ID=" + DBUID + ";Password=" + DBPWD);
 
