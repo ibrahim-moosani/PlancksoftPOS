@@ -23,14 +23,25 @@ namespace PlancksoftPOSJSON_Server
             )
         ]
         string CheckConnection();
-        
-        string RetrieveSaleByDate(DateTime StartDate, DateTime EndDate);      
         [OperationContract]
         [
             WebInvoke
             (
                 Method = "POST",
                 UriTemplate = "RetrieveSaleByDate",
+                RequestFormat = WebMessageFormat.Json,
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedRequest
+            )
+        ]
+
+        string RetrieveSaleByDate(DateTime StartDate, DateTime EndDate);
+        [OperationContract]
+        [
+            WebInvoke
+            (
+                Method = "POST",
+                UriTemplate = "RetrieveSystemSettings",
                 RequestFormat = WebMessageFormat.Json,
                 ResponseFormat = WebMessageFormat.Json,
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
