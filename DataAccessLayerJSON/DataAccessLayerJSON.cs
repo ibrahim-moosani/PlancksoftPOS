@@ -2802,6 +2802,7 @@ namespace DataAccessLayerJSON
                     cmd.Parameters.AddWithValue("@cashierName", cashierName);
                     cmd.Parameters.AddWithValue("@totalAmount", billToAdd.getTotalAmount());
                     cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
+                    cmd.Parameters.AddWithValue("@IsVendor", Convert.ToInt32(billToAdd.IsVendor));
                     cmd.Parameters.Add("@BillID", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
