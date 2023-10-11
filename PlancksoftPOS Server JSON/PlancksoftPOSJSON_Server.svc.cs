@@ -93,8 +93,8 @@ namespace PlancksoftPOSJSON_Server
             return new JavaScriptSerializer().Serialize(DAL.RetrieveLoginLogoutInfo(Date));
         }
         public string RetrieveUsersList()
-        {
-            return new JavaScriptSerializer().Serialize(DAL.RetrieveUsersList());
+        {  
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveUsersList()); 
         }
         public string GetRetrieveClients()
         {
@@ -156,8 +156,7 @@ namespace PlancksoftPOSJSON_Server
         {
             return new JavaScriptSerializer().Serialize(DAL.SaveRegisterOpen(cashierName, moneyInRegister));
         }
-        public string SearchWarehouseInventoryItems(int WarehouseID)
-        {
+        public string SearchWarehouseInventoryItems(int WarehouseID) { 
             return new JavaScriptSerializer().Serialize(DAL.SearchWarehouseInventoryItems(WarehouseID));
         }
         public string SearchInventoryItems(string ItemName = "", string ItemBarCode = "", int locale = 1)
@@ -170,10 +169,10 @@ namespace PlancksoftPOSJSON_Server
         }
         public string RetrieveUnPortedBills()
         {
-            return new JavaScriptSerializer().Serialize(DAL.RetrieveUnPortedBills());
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveUnPortedBills()); 
         }
         public string RetrievePortedBills()
-        {
+        { 
             return new JavaScriptSerializer().Serialize(DAL.RetrievePortedBills());
         }
         public string RetrieveUnpaidBills()
@@ -439,15 +438,15 @@ namespace PlancksoftPOSJSON_Server
         public string RetrieveTotalActiveItems(DateTime ExpirationDate)
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveTotalActiveItems(ExpirationDate));
-        }
+        } 
         public string RetrieveClientCount()
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveClientCount());
-        }
+        }   
         public string RetrieveBillsCountByDate(DateTime StartDate, DateTime EndDate)
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveBillsCountByDate(StartDate, EndDate));
-        }
+        }  
         public string RetrieveLastBillNumberToday()
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveLastBillNumberToday());
@@ -467,7 +466,7 @@ namespace PlancksoftPOSJSON_Server
         public string RetrieveSaleDateRange(DateTime StartDate, DateTime EndDate, int QuantityEnd = 0)
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveSaleDateRange(StartDate, EndDate, QuantityEnd));
-        }
+        }  
         public string RetrieveSaleToday(DateTime Date, int QuantityEnd = 0)
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveSaleToday(Date, QuantityEnd));

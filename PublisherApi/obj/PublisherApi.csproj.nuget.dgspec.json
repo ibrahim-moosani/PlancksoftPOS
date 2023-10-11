@@ -1,19 +1,19 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj": {}
+    "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj": {}
   },
   "projects": {
-    "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj": {
+    "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj": {
       "restore": {
-        "projectUniqueName": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj",
+        "projectUniqueName": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj",
         "projectName": "DataAccessLayerJSON",
-        "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj",
+        "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj",
         "frameworks": {
           "net48": {
             "projectReferences": {
-              "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\Dependencies\\Dependencies.csproj": {
-                "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\Dependencies\\Dependencies.csproj"
+              "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\Dependencies\\Dependencies.csproj": {
+                "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\Dependencies\\Dependencies.csproj"
               }
             }
           }
@@ -23,11 +23,11 @@
         "net48": {}
       }
     },
-    "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\Dependencies\\Dependencies.csproj": {
+    "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\Dependencies\\Dependencies.csproj": {
       "restore": {
-        "projectUniqueName": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\Dependencies\\Dependencies.csproj",
+        "projectUniqueName": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\Dependencies\\Dependencies.csproj",
         "projectName": "Dependencies",
-        "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\Dependencies\\Dependencies.csproj",
+        "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\Dependencies\\Dependencies.csproj",
         "frameworks": {
           "net48": {
             "projectReferences": {}
@@ -38,19 +38,19 @@
         "net48": {}
       }
     },
-    "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj": {
+    "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj": {
       "restore": {
-        "projectUniqueName": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj",
+        "projectUniqueName": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj",
         "projectName": "PlancksoftPOS Server JSON",
-        "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj",
+        "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj",
         "frameworks": {
           "net48": {
             "projectReferences": {
-              "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj": {
-                "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj"
+              "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj": {
+                "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj"
               },
-              "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\Dependencies\\Dependencies.csproj": {
-                "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\Dependencies\\Dependencies.csproj"
+              "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\Dependencies\\Dependencies.csproj": {
+                "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\Dependencies\\Dependencies.csproj"
               }
             }
           }
@@ -60,17 +60,21 @@
         "net48": {}
       }
     },
-    "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj": {
+    "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
+        "projectUniqueName": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
         "projectName": "PublisherApi",
-        "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
-        "packagesPath": "C:\\Users\\Ibrahim Moosani\\.nuget\\packages\\",
-        "outputPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PublisherApi\\obj\\",
+        "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
+        "packagesPath": "C:\\Users\\basha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PublisherApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Ibrahim Moosani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\basha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -78,17 +82,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.307\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj": {
-                "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj"
+              "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj": {
+                "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj"
               },
-              "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj": {
-                "projectPath": "D:\\Persnal client\\Planksoft POS hanzalla copy\\PlancksoftPOS\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj"
+              "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj": {
+                "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj"
               }
             }
           }
@@ -118,7 +123,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -130,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.307\\RuntimeIdentifierGraph.json"
         }
       }
     }
