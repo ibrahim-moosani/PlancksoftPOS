@@ -11,7 +11,7 @@ namespace Dependencies
     public class Bill
     {
         [DataMember]
-        private bool isVendor;
+        public bool isVendor;
         [DataMember]
         private bool postponed;
         [DataMember]
