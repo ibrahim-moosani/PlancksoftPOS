@@ -20,6 +20,9 @@ namespace PublisherApi
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseKestrel();
+                    webBuilder.UseIIS();
+                    webBuilder.UseUrls("http://*:5000", "https://*:5001");
                     webBuilder.UseStartup<Startup>();
                 });
     }
