@@ -22,7 +22,7 @@ namespace PublisherApi
                 {
                     webBuilder.UseKestrel();
                     webBuilder.UseIIS();
-                    webBuilder.UseUrls("http://*:5000", "https://*:5001");
+                    webBuilder.UseUrls("http://*:5000");
                     webBuilder.UseStartup<Startup>();
                 });
     }
