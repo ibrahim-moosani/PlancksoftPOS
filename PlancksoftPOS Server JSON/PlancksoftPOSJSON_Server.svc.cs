@@ -366,6 +366,10 @@ namespace PlancksoftPOSJSON_Server
         public string DeleteAbsence(int AbsenceID)
         {
             return new JavaScriptSerializer().Serialize(DAL.DeleteAbsence(AbsenceID));
+        }   
+        public string DeleteDeduction(int DeductionID)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.DeleteDeduction(DeductionID));
         }
         public string DeleteEmployee(int EmployeeID)
         {
@@ -402,6 +406,14 @@ namespace PlancksoftPOSJSON_Server
         public string UpdateEmployee(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address)
         {
             return new JavaScriptSerializer().Serialize(DAL.UpdateEmployee(EmployeeID, EmployeeName, Salary, Phone, Address));
+        } 
+        public string UpdateAbsence(int AbsenceID, int Hours)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.UpdateAbsence(AbsenceID, Hours));
+        }  
+        public string UpdateDeduction(int DeductionID, int DeductionAmount)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.UpdateDeduction(DeductionID, DeductionAmount));
         }
         public string UpdateUser(Account UserToUpdate, string cashierName, int AdminOrNot)
         {

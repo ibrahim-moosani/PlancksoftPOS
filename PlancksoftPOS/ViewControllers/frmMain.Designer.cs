@@ -404,6 +404,10 @@ namespace PlancksoftPOS
             this.tabControl8 = new MaterialSkin.Controls.MaterialTabControl();
             this.EmployeesManagement = new System.Windows.Forms.TabPage();
             this.groupBox49 = new MaterialSkin.Controls.MaterialCard();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DateEmployeeTo = new System.Windows.Forms.DateTimePicker();
+            this.DateEmployeeFrom = new System.Windows.Forms.DateTimePicker();
             this.groupBox50 = new MaterialSkin.Controls.MaterialCard();
             this.button35 = new MaterialSkin.Controls.MaterialButton();
             this.button37 = new MaterialSkin.Controls.MaterialButton();
@@ -769,10 +773,6 @@ namespace PlancksoftPOS
             this.hamburger_menu_clients_affairs_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_taxes_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_settings_sub_timer = new System.Windows.Forms.Timer(this.components);
-            this.DateEmployeeFrom = new System.Windows.Forms.DateTimePicker();
-            this.DateEmployeeTo = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -6534,6 +6534,38 @@ namespace PlancksoftPOS
             this.groupBox49.Size = new System.Drawing.Size(910, 908);
             this.groupBox49.TabIndex = 1;
             this.groupBox49.Text = "جدول الموظفين";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(477, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 16);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "To";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(791, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 16);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "From";
+            // 
+            // DateEmployeeTo
+            // 
+            this.DateEmployeeTo.Location = new System.Drawing.Point(208, 21);
+            this.DateEmployeeTo.Name = "DateEmployeeTo";
+            this.DateEmployeeTo.Size = new System.Drawing.Size(263, 22);
+            this.DateEmployeeTo.TabIndex = 39;
+            // 
+            // DateEmployeeFrom
+            // 
+            this.DateEmployeeFrom.Location = new System.Drawing.Point(514, 21);
+            this.DateEmployeeFrom.Name = "DateEmployeeFrom";
+            this.DateEmployeeFrom.Size = new System.Drawing.Size(262, 22);
+            this.DateEmployeeFrom.TabIndex = 38;
             // 
             // groupBox50
             // 
@@ -12477,38 +12509,6 @@ namespace PlancksoftPOS
             // 
             this.hamburger_menu_settings_sub_timer.Interval = 10;
             this.hamburger_menu_settings_sub_timer.Tick += new System.EventHandler(this.hamburger_menu_settings_sub_timer_Tick_1);
-            // 
-            // DateEmployeeFrom
-            // 
-            this.DateEmployeeFrom.Location = new System.Drawing.Point(514, 21);
-            this.DateEmployeeFrom.Name = "DateEmployeeFrom";
-            this.DateEmployeeFrom.Size = new System.Drawing.Size(262, 22);
-            this.DateEmployeeFrom.TabIndex = 38;
-            // 
-            // DateEmployeeTo
-            // 
-            this.DateEmployeeTo.Location = new System.Drawing.Point(208, 21);
-            this.DateEmployeeTo.Name = "DateEmployeeTo";
-            this.DateEmployeeTo.Size = new System.Drawing.Size(263, 22);
-            this.DateEmployeeTo.TabIndex = 39;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(791, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 16);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "From";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(477, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 16);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "To";
             // 
             // frmMain
             // 

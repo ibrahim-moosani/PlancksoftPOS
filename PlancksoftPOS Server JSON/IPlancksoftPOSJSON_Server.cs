@@ -1056,7 +1056,19 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
-        string DeleteAbsence(int AbsenceID);
+        string DeleteAbsence(int AbsenceID);   
+        [OperationContract]
+        [
+            WebInvoke
+            (
+                Method = "POST",
+                UriTemplate = "DeleteDeduction",
+                RequestFormat = WebMessageFormat.Json,
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedRequest
+            )
+        ]
+        string DeleteDeduction(int DeductionID);
         [OperationContract]
         [
             WebInvoke
@@ -1165,6 +1177,30 @@ namespace PlancksoftPOSJSON_Server
             )
         ]
         string UpdateEmployee(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address);
+        [OperationContract]
+        [
+            WebInvoke
+            (
+                Method = "POST",
+                UriTemplate = "UpdateAbsence",
+                RequestFormat = WebMessageFormat.Json,
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedRequest
+            )
+        ]
+        string UpdateAbsence(int AbsenceID, int Hours);  
+        [OperationContract]
+        [
+            WebInvoke
+            (
+                Method = "POST",
+                UriTemplate = "UpdateDeduction",
+                RequestFormat = WebMessageFormat.Json,
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedRequest
+            )
+        ]
+        string UpdateDeduction(int DeductionID, int DeductionAmount);
         [OperationContract]
         [
             WebInvoke
