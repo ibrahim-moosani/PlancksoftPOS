@@ -660,7 +660,7 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
-        string RetrieveEmployees();
+        string RetrieveEmployees(DateTime DateFrom, DateTime DateTo);
         [OperationContract]
         [
             WebInvoke

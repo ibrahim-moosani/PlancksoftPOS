@@ -1694,7 +1694,7 @@ namespace DataAccessLayer
             }
         }
 
-        public DataTable RetrieveEmployees()
+        public DataTable RetrieveEmployees(DateTime DateFrom, DateTime DateTo)
         {
             try
             {
@@ -1703,6 +1703,8 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                cmd.Parameters.AddWithValue("@Date1", DateFrom);
+                cmd.Parameters.AddWithValue("@Date2", DateTo);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);

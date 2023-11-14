@@ -235,9 +235,9 @@ namespace PlancksoftPOSJSON_Server
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveItems(locale));
         }
-        public string RetrieveEmployees()
+        public string RetrieveEmployees(DateTime DateFrom, DateTime DateTo)
         {
-            return new JavaScriptSerializer().Serialize(DAL.RetrieveEmployees());
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveEmployees(DateFrom, DateTo));
         }
         public string RetrieveUsers()
         {

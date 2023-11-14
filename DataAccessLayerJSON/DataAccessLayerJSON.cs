@@ -1745,7 +1745,7 @@ namespace DataAccessLayerJSON
             }
         }
 
-        public Response RetrieveEmployees()
+        public Response RetrieveEmployees(DateTime DateFrom, DateTime DateTo)
         {
             try
             {
@@ -1754,6 +1754,10 @@ namespace DataAccessLayerJSON
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+
+                cmd.Parameters.AddWithValue("@Date1", DateFrom);
+                cmd.Parameters.AddWithValue("@Date2", DateTo);
+
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
