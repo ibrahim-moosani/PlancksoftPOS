@@ -3049,7 +3049,7 @@ namespace DataAccessLayerJSON
             }
         }   
 
-        public Response UpdateDeduction(int DeductionID, int DeductionAmount)
+        public Response UpdateDeduction(int DeductionID, decimal DeductionAmount)
         {
             try
             {
