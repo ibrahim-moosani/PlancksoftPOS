@@ -516,10 +516,10 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveItemsAsync(int locale);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveEmployees", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveEmployeesResponse")]
-        System.Data.DataTable RetrieveEmployees();
+        System.Data.DataTable RetrieveEmployees(System.DateTime DateFrom, System.DateTime DateTo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveEmployees", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveEmployeesResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> RetrieveEmployeesAsync();
+        System.Threading.Tasks.Task<System.Data.DataTable> RetrieveEmployeesAsync(System.DateTime DateFrom, System.DateTime DateTo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUsers", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUsersResponse")]
         System.Tuple<System.Collections.Generic.List<Dependencies.Account>, System.Data.DataTable> RetrieveUsers();
@@ -1405,12 +1405,12 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
             return base.Channel.RetrieveItemsAsync(locale);
         }
         
-        public System.Data.DataTable RetrieveEmployees() {
-            return base.Channel.RetrieveEmployees();
+        public System.Data.DataTable RetrieveEmployees(System.DateTime DateFrom, System.DateTime DateTo) {
+            return base.Channel.RetrieveEmployees(DateFrom, DateTo);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> RetrieveEmployeesAsync() {
-            return base.Channel.RetrieveEmployeesAsync();
+        public System.Threading.Tasks.Task<System.Data.DataTable> RetrieveEmployeesAsync(System.DateTime DateFrom, System.DateTime DateTo) {
+            return base.Channel.RetrieveEmployeesAsync(DateFrom, DateTo);
         }
         
         public System.Tuple<System.Collections.Generic.List<Dependencies.Account>, System.Data.DataTable> RetrieveUsers() {

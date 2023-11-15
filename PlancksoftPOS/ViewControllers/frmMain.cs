@@ -3465,7 +3465,7 @@ namespace PlancksoftPOS
 
         public void DisplayEmployees()
         {
-            DataTable RetrievedEmployees = Connection.server.RetrieveEmployees();
+            DataTable RetrievedEmployees = Connection.server.RetrieveEmployees(Convert.ToDateTime(DateEmployeeFrom.Value), Convert.ToDateTime(DateEmployeeTo.Value));
             dgvEmployees.DataSource = RetrievedEmployees;
         }
 

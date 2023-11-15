@@ -79,6 +79,7 @@
       <xs:element minOccurs="0" name="clientName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="clientPhone" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="isVendor" type="xs:boolean" />
       <xs:element minOccurs="0" name="itemsBought" nillable="true" type="tns:ArrayOfItem" />
       <xs:element minOccurs="0" name="paidAmount" type="xs:decimal" />
       <xs:element minOccurs="0" name="paybycash" type="xs:boolean" />

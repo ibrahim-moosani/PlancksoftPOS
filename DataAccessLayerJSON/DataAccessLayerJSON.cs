@@ -1745,7 +1745,7 @@ namespace DataAccessLayerJSON
             }
         }
 
-        public Response RetrieveEmployees()
+        public Response RetrieveEmployees(DateTime DateFrom, DateTime DateTo)
         {
             try
             {
@@ -1754,6 +1754,10 @@ namespace DataAccessLayerJSON
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+
+                cmd.Parameters.AddWithValue("@Date1", DateFrom);
+                cmd.Parameters.AddWithValue("@Date2", DateTo);
+
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -2678,6 +2682,31 @@ namespace DataAccessLayerJSON
             {
                 return new Response("Could not Delete Absence.", false);
             }
+        }      
+
+        public Response DeleteDeduction(int DeductionID)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("DeleteDeduction", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@DeductionID", DeductionID);
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+                    return new Response(Convert.ToBoolean(Status), true);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Response("Could not Delete Deduction.", false);
+            }
         }
 
         public Response DeleteEmployee(int EmployeeID)
@@ -2991,6 +3020,58 @@ namespace DataAccessLayerJSON
             catch (Exception ex)
             {
                 return new Response("Could not Update Employee.", false);
+            }
+        }    
+
+        public Response UpdateAbsence(int AbsenceID, int Hours)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateAbsence", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@AbsenceID", AbsenceID);
+                    cmd.Parameters.AddWithValue("@Hours", Hours);
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+                    return new Response(Convert.ToBoolean(Status), true);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Response("Could not Update Absence.", false);
+            }
+        }   
+
+        public Response UpdateDeduction(int DeductionID, decimal DeductionAmount)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateDeduction", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@DeductionID", DeductionID);
+                    cmd.Parameters.AddWithValue("@DeductionAmount", DeductionAmount);
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+                    return new Response(Convert.ToBoolean(Status), true);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Response("Could not Update Absence.", false);
             }
         }
 
