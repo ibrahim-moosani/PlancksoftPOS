@@ -10272,21 +10272,24 @@ namespace PlancksoftPOS
             }
         }
 
-        public void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        public void FavoriteCategoryInsert()
         {
             if (e.KeyChar == (Char)Keys.Enter)
             {
-                bool addedFavoriteCategory = Connection.server.InsertFavoriteCategory(FavoriteCategoryEntry.Text);
-                if (addedFavoriteCategory)
+                if (FavoriteCategoryEntry.Text.Trim().Length > 0)
                 {
-                    DisplayFavorites();
-                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    bool addedFavoriteCategory = Connection.server.InsertFavoriteCategory(FavoriteCategoryEntry.Text);
+                    if (addedFavoriteCategory)
                     {
-                        MaterialMessageBox.Show(".تم حفظ مجلد المفضلات الجديد", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    }
-                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                    {
-                        MaterialMessageBox.Show("A new Favorite Category was saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        DisplayFavorites();
+                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MaterialMessageBox.Show(".تم حفظ مجلد المفضلات الجديد", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        }
+                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MaterialMessageBox.Show("A new Favorite Category was saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        }
                     }
                 }
             }
@@ -10743,6 +10746,26 @@ namespace PlancksoftPOS
             Program.materialSkinManager.RemoveFormToManage(this);
         }
 
+        private void ItemTypeAddButton_Click(object sender, EventArgs e)
+        {
+            ItemTypeInsert();
+        }
+
+        private void FavoriteCategoryAddButton_Click(object sender, EventArgs e)
+        {
+            FavoriteCategoryInsert();
+        }
+
+        private void WarehouseAddButton_Click(object sender, EventArgs e)
+        {
+            WarehouseInsert();
+        }
+
+        private void WarehouseInsertKeyPress(object sender, KeyPressEventArgs e)
+        {
+            WarehouseInsert();
+        }
+
         private void hamburger_menu_expenses_sub_timer_Tick(object sender, EventArgs e)
         {
             if (menuExpensesSubExpand)
@@ -10877,7 +10900,7 @@ namespace PlancksoftPOS
             }
         }
 
-        public void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        private void WarehouseInsert(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
             {
@@ -11259,14 +11282,17 @@ namespace PlancksoftPOS
             ApplyDiscountsToPendingItems();
         }
 
-        public void textBox6_KeyPress(object sender, KeyPressEventArgs e)
+        public void ItemTypeInsert()
         {
             if (e.KeyChar == (Char)Keys.Enter)
             {
-                bool addedItemType = Connection.server.InsertItemType(ItemTypeEntry.Text);
-                if (addedItemType)
+                if (ItemTypeEntry.Text.Trim().Length > 0)
                 {
-                    DisplayItemTypes();
+                    bool addedItemType = Connection.server.InsertItemType(ItemTypeEntry.Text);
+                    if (addedItemType)
+                    {
+                        DisplayItemTypes();
+                    }
                 }
             }
         }
@@ -11653,7 +11679,7 @@ namespace PlancksoftPOS
             }
         }
 
-        public void pictureBox38_Click(object sender, EventArgs e)
+        public void WarehouseInsert()
         {
             if (WarehouseEntry.Text.Trim().Length > 0)
             {
@@ -11777,25 +11803,7 @@ namespace PlancksoftPOS
 
         public void pictureBox36_Click(object sender, EventArgs e)
         {
-            if (FavoriteCategoryEntry.Text.Trim().Length > 0)
-            {
-                bool addedFavoriteCategory = Connection.server.InsertFavoriteCategory(FavoriteCategoryEntry.Text);
-                if (addedFavoriteCategory)
-                {
-                    DisplayFavorites();
-                }
-            }
-            else
-            {
-                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                {
-                    MaterialMessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                }
-                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                {
-                    MaterialMessageBox.Show("Please enter a valid Address name.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                }
-            }
+            FavoriteCategoryInsert();
         }
 
         public void pictureBox15_Click(object sender, EventArgs e)

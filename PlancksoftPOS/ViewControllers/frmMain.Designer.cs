@@ -1,4 +1,5 @@
 ﻿using MaterialSkin.Controls;
+using System;
 using System.Windows.Forms;
 
 namespace PlancksoftPOS
@@ -334,19 +335,19 @@ namespace PlancksoftPOS
             this.label29 = new MaterialSkin.Controls.MaterialLabel();
             this.ItemTypeEntry = new MaterialSkin.Controls.MaterialTextBox2();
             this.label30 = new MaterialSkin.Controls.MaterialLabel();
-            this.pictureBox39 = new System.Windows.Forms.PictureBox();
+            this.ItemTypeAddButton = new System.Windows.Forms.PictureBox();
             this.AddFavorites = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new MaterialSkin.Controls.MaterialListView();
             this.label22 = new MaterialSkin.Controls.MaterialLabel();
             this.FavoriteCategoryEntry = new MaterialSkin.Controls.MaterialTextBox2();
             this.label23 = new MaterialSkin.Controls.MaterialLabel();
-            this.pictureBox36 = new System.Windows.Forms.PictureBox();
+            this.FavoriteCategoryAddButton = new System.Windows.Forms.PictureBox();
             this.AddWarehouses = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel2 = new MaterialSkin.Controls.MaterialListView();
             this.label26 = new MaterialSkin.Controls.MaterialLabel();
             this.WarehouseEntry = new MaterialSkin.Controls.MaterialTextBox2();
             this.label27 = new MaterialSkin.Controls.MaterialLabel();
-            this.pictureBox38 = new System.Windows.Forms.PictureBox();
+            this.WarehouseAddButton = new System.Windows.Forms.PictureBox();
             this.Expenses = new System.Windows.Forms.TabPage();
             this.tabControl5 = new MaterialSkin.Controls.MaterialTabControl();
             this.SearchExpenses = new System.Windows.Forms.TabPage();
@@ -876,13 +877,13 @@ namespace PlancksoftPOS
             ((System.ComponentModel.ISupportInitialize)(this.EntryExitItemQuantity)).BeginInit();
             this.AddTypes.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemTypeAddButton)).BeginInit();
             this.AddFavorites.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FavoriteCategoryAddButton)).BeginInit();
             this.AddWarehouses.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WarehouseAddButton)).BeginInit();
             this.Expenses.SuspendLayout();
             this.tabControl5.SuspendLayout();
             this.SearchExpenses.SuspendLayout();
@@ -5392,7 +5393,7 @@ namespace PlancksoftPOS
             this.flowLayoutPanel3.Controls.Add(this.label29);
             this.flowLayoutPanel3.Controls.Add(this.ItemTypeEntry);
             this.flowLayoutPanel3.Controls.Add(this.label30);
-            this.flowLayoutPanel3.Controls.Add(this.pictureBox39);
+            this.flowLayoutPanel3.Controls.Add(this.ItemTypeAddButton);
             this.flowLayoutPanel3.Depth = 0;
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.ForeColor = System.Drawing.Color.White;
@@ -5451,7 +5452,7 @@ namespace PlancksoftPOS
             this.ItemTypeEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ItemTypeEntry.TrailingIcon = null;
             this.ItemTypeEntry.UseSystemPasswordChar = false;
-            this.ItemTypeEntry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox6_KeyPress);
+            this.ItemTypeEntry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ItemTypeInsertKeyPress);
             // 
             // label30
             // 
@@ -5466,18 +5467,18 @@ namespace PlancksoftPOS
             this.label30.TabIndex = 11;
             this.label30.Text = "أصناف المواد المضافه";
             // 
-            // pictureBox39
+            // ItemTypeAddButton
             // 
-            this.pictureBox39.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox39.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox39.Image = global::PlancksoftPOS.Properties.Resources.plus;
-            this.pictureBox39.Location = new System.Drawing.Point(1764, 95);
-            this.pictureBox39.Name = "pictureBox39";
-            this.pictureBox39.Size = new System.Drawing.Size(68, 49);
-            this.pictureBox39.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox39.TabIndex = 0;
-            this.pictureBox39.TabStop = false;
-            this.pictureBox39.Click += new System.EventHandler(this.pictureBox39_Click);
+            this.ItemTypeAddButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ItemTypeAddButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ItemTypeAddButton.Image = global::PlancksoftPOS.Properties.Resources.plus;
+            this.ItemTypeAddButton.Location = new System.Drawing.Point(1764, 95);
+            this.ItemTypeAddButton.Name = "ItemTypeAddButton";
+            this.ItemTypeAddButton.Size = new System.Drawing.Size(68, 49);
+            this.ItemTypeAddButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ItemTypeAddButton.TabIndex = 0;
+            this.ItemTypeAddButton.TabStop = false;
+            this.ItemTypeAddButton.Click += new System.EventHandler(this.ItemTypeAddButton_Click);
             // 
             // AddFavorites
             // 
@@ -5497,7 +5498,7 @@ namespace PlancksoftPOS
             this.flowLayoutPanel1.Controls.Add(this.label22);
             this.flowLayoutPanel1.Controls.Add(this.FavoriteCategoryEntry);
             this.flowLayoutPanel1.Controls.Add(this.label23);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox36);
+            this.flowLayoutPanel1.Controls.Add(this.FavoriteCategoryAddButton);
             this.flowLayoutPanel1.Depth = 0;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.ForeColor = System.Drawing.Color.White;
@@ -5556,7 +5557,7 @@ namespace PlancksoftPOS
             this.FavoriteCategoryEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.FavoriteCategoryEntry.TrailingIcon = null;
             this.FavoriteCategoryEntry.UseSystemPasswordChar = false;
-            this.FavoriteCategoryEntry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
+            this.FavoriteCategoryEntry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FavoriteCategoryKeyPress);
             // 
             // label23
             // 
@@ -5571,18 +5572,18 @@ namespace PlancksoftPOS
             this.label23.TabIndex = 11;
             this.label23.Text = "المفضلات المضافه";
             // 
-            // pictureBox36
+            // FavoriteCategoryAddButton
             // 
-            this.pictureBox36.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox36.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox36.Image = global::PlancksoftPOS.Properties.Resources.plus;
-            this.pictureBox36.Location = new System.Drawing.Point(1770, 95);
-            this.pictureBox36.Name = "pictureBox36";
-            this.pictureBox36.Size = new System.Drawing.Size(68, 49);
-            this.pictureBox36.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox36.TabIndex = 0;
-            this.pictureBox36.TabStop = false;
-            this.pictureBox36.Click += new System.EventHandler(this.pictureBox36_Click);
+            this.FavoriteCategoryAddButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.FavoriteCategoryAddButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FavoriteCategoryAddButton.Image = global::PlancksoftPOS.Properties.Resources.plus;
+            this.FavoriteCategoryAddButton.Location = new System.Drawing.Point(1770, 95);
+            this.FavoriteCategoryAddButton.Name = "FavoriteCategoryAddButton";
+            this.FavoriteCategoryAddButton.Size = new System.Drawing.Size(68, 49);
+            this.FavoriteCategoryAddButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.FavoriteCategoryAddButton.TabIndex = 0;
+            this.FavoriteCategoryAddButton.TabStop = false;
+            this.FavoriteCategoryAddButton.Click += new System.EventHandler(this.FavoriteCategoryAddButton_Click);
             // 
             // AddWarehouses
             // 
@@ -5602,7 +5603,7 @@ namespace PlancksoftPOS
             this.flowLayoutPanel2.Controls.Add(this.label26);
             this.flowLayoutPanel2.Controls.Add(this.WarehouseEntry);
             this.flowLayoutPanel2.Controls.Add(this.label27);
-            this.flowLayoutPanel2.Controls.Add(this.pictureBox38);
+            this.flowLayoutPanel2.Controls.Add(this.WarehouseAddButton);
             this.flowLayoutPanel2.Depth = 0;
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.ForeColor = System.Drawing.Color.White;
@@ -5661,7 +5662,7 @@ namespace PlancksoftPOS
             this.WarehouseEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.WarehouseEntry.TrailingIcon = null;
             this.WarehouseEntry.UseSystemPasswordChar = false;
-            this.WarehouseEntry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
+            this.WarehouseEntry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WarehouseInsertKeyPress);
             // 
             // label27
             // 
@@ -5676,18 +5677,18 @@ namespace PlancksoftPOS
             this.label27.TabIndex = 11;
             this.label27.Text = "المستودعات المضافه";
             // 
-            // pictureBox38
+            // WarehouseAddButton
             // 
-            this.pictureBox38.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox38.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox38.Image = global::PlancksoftPOS.Properties.Resources.plus;
-            this.pictureBox38.Location = new System.Drawing.Point(1770, 95);
-            this.pictureBox38.Name = "pictureBox38";
-            this.pictureBox38.Size = new System.Drawing.Size(68, 49);
-            this.pictureBox38.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox38.TabIndex = 0;
-            this.pictureBox38.TabStop = false;
-            this.pictureBox38.Click += new System.EventHandler(this.pictureBox38_Click);
+            this.WarehouseAddButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.WarehouseAddButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.WarehouseAddButton.Image = global::PlancksoftPOS.Properties.Resources.plus;
+            this.WarehouseAddButton.Location = new System.Drawing.Point(1770, 95);
+            this.WarehouseAddButton.Name = "WarehouseAddButton";
+            this.WarehouseAddButton.Size = new System.Drawing.Size(68, 49);
+            this.WarehouseAddButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WarehouseAddButton.TabIndex = 0;
+            this.WarehouseAddButton.TabStop = false;
+            this.WarehouseAddButton.Click += new System.EventHandler(this.WarehouseAddButton_Click);
             // 
             // Expenses
             // 
@@ -12654,15 +12655,15 @@ namespace PlancksoftPOS
             this.AddTypes.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemTypeAddButton)).EndInit();
             this.AddFavorites.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FavoriteCategoryAddButton)).EndInit();
             this.AddWarehouses.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WarehouseAddButton)).EndInit();
             this.Expenses.ResumeLayout(false);
             this.tabControl5.ResumeLayout(false);
             this.SearchExpenses.ResumeLayout(false);
@@ -12823,6 +12824,16 @@ namespace PlancksoftPOS
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void ItemTypeInsertKeyPress(object sender, KeyPressEventArgs e)
+        {
+            ItemTypeInsert();
+        }
+
+        private void FavoriteCategoryKeyPress(object sender, KeyPressEventArgs e)
+        {
+            FavoriteCategoryInsert();
         }
 
         #endregion
@@ -13050,17 +13061,17 @@ namespace PlancksoftPOS
         public MaterialLabel label29;
         public MaterialTextBox2 ItemTypeEntry;
         public MaterialLabel label30;
-        public System.Windows.Forms.PictureBox pictureBox39;
+        public System.Windows.Forms.PictureBox ItemTypeAddButton;
         public MaterialListView flowLayoutPanel1;
         public MaterialLabel label22;
         public MaterialTextBox2 FavoriteCategoryEntry;
         public MaterialLabel label23;
-        public System.Windows.Forms.PictureBox pictureBox36;
+        public System.Windows.Forms.PictureBox FavoriteCategoryAddButton;
         public MaterialListView flowLayoutPanel2;
         public MaterialLabel label26;
         public MaterialTextBox2 WarehouseEntry;
         public MaterialLabel label27;
-        public System.Windows.Forms.PictureBox pictureBox38;
+        public System.Windows.Forms.PictureBox WarehouseAddButton;
         public ToolStripMenuItem ادارةالمستودعToolStripMenuItem;
         public ToolStripMenuItem اضافةصنفToolStripMenuItem;
         public ToolStripMenuItem اضافةمستودعToolStripMenuItem;
