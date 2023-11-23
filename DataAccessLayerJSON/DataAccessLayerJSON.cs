@@ -1608,6 +1608,7 @@ namespace DataAccessLayerJSON
                 adapter.Fill(dt);
                 dt.TableName = "UserPermissions";
                 
+                User.Uid = UserID;
                 foreach (DataRow Permission in dt.Rows)
                 {
                     User.Authority = Convert.ToInt32(Permission["Authority"].ToString());
