@@ -10274,22 +10274,19 @@ namespace PlancksoftPOS
 
         public void FavoriteCategoryInsert()
         {
-            if (e.KeyChar == (Char)Keys.Enter)
+            if (FavoriteCategoryEntry.Text.Trim().Length > 0)
             {
-                if (FavoriteCategoryEntry.Text.Trim().Length > 0)
+                bool addedFavoriteCategory = Connection.server.InsertFavoriteCategory(FavoriteCategoryEntry.Text);
+                if (addedFavoriteCategory)
                 {
-                    bool addedFavoriteCategory = Connection.server.InsertFavoriteCategory(FavoriteCategoryEntry.Text);
-                    if (addedFavoriteCategory)
+                    DisplayFavorites();
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        DisplayFavorites();
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            MaterialMessageBox.Show(".تم حفظ مجلد المفضلات الجديد", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            MaterialMessageBox.Show("A new Favorite Category was saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                        }
+                        MaterialMessageBox.Show(".تم حفظ مجلد المفضلات الجديد", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("A new Favorite Category was saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -11284,15 +11281,12 @@ namespace PlancksoftPOS
 
         public void ItemTypeInsert()
         {
-            if (e.KeyChar == (Char)Keys.Enter)
+            if (ItemTypeEntry.Text.Trim().Length > 0)
             {
-                if (ItemTypeEntry.Text.Trim().Length > 0)
+                bool addedItemType = Connection.server.InsertItemType(ItemTypeEntry.Text);
+                if (addedItemType)
                 {
-                    bool addedItemType = Connection.server.InsertItemType(ItemTypeEntry.Text);
-                    if (addedItemType)
-                    {
-                        DisplayItemTypes();
-                    }
+                    DisplayItemTypes();
                 }
             }
         }
