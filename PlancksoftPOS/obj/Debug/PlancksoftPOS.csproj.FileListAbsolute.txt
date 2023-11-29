@@ -124,7 +124,6 @@ C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.exe
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.pdb
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmSales.resources
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.csproj.AssemblyReference.cache
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.csproj.SuggestedBindingRedirects.cache
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\Interop.WMPLib.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.csproj.ResolveComReference.cache
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmColorPicker.resources
